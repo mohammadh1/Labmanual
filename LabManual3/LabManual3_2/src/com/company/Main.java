@@ -26,13 +26,38 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        MusicCollection[] categories = new MusicCollection[3];
-        
-        for (int j = 0 ; j < 2 ; j++) {
-            ArrayList<Music> songs = new ArrayList<>();
-            Music temp = new Music();
-            System.out.println("(Category #" + j + ")");
-            for (int i = 0; i < 1; i++) {
+        ArrayList<Music> songs = new ArrayList<>();
+        Music song1 = new Music("song1", "artist1", 2001);
+        songs.add(song1);
+        Music song2 = new Music("song2", "artist2", 2002);
+        songs.add(song2);
+        Music song3 = new Music("song3", "artist3", 2003);
+        songs.add(song3);
+        MusicCollection[] pop = new MusicCollection[3];
+        for (int j = 0 ; j < 3 ; j++) {
+            pop[j] = new MusicCollection();
+        }
+        pop[0].setFiles(songs);
+        pop[0].printAllList();
+        System.out.println("****************************8");
+        pop[0].addLikedSong(song2);
+        pop[0].printLikedSongs();
+        System.out.println("****************************8");
+        pop[0].deleteSong(song2);
+        pop[0].printAllList();
+
+    }
+}
+
+
+
+
+
+
+
+
+//Music temp = new Music();
+            /*for (int i = 0; i < 3; i++) {
                 System.out.println("***********************");
                 System.out.println("(song #" + i + ")");
 
@@ -52,8 +77,4 @@ public class Main {
 
                 System.out.println("**********************");
             }
-            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            categories[j].setFiles(songs);
-        }
-    }
-}
+            System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");*/

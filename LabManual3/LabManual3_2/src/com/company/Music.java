@@ -6,9 +6,9 @@ package com.company;
  * @version 0.0
  */
 public class Music {
-    public static String name;
-    public static String artist;
-    public static int year;
+    public String name;
+    public String artist;
+    public int year;
 
     /**
      * constructor of MusicCollection
@@ -17,11 +17,6 @@ public class Music {
         this.name = name;
         this.artist = artist;
         this.year = year;
-    }
-    public Music() {
-        this.name = null;
-        this.artist = null;
-        this.year = 0;
     }
     public String getName() {
         return name;
@@ -40,5 +35,8 @@ public class Music {
     }
     public void setYear(int year) {
         this.year = year;
+    }
+    public String toString(){
+        return "[" + name + "," + artist + "," + year + "]";
     }
 }

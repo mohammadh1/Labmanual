@@ -8,14 +8,15 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class MusicCollection {
-    public static ArrayList<Music> files;
-    public static ArrayList<Music> likedFiles;
+    private ArrayList<Music> files;
+    private ArrayList<Music> likedFiles;
 
     /**
      * constructor of MusicCollection
      */
     public MusicCollection() {
-        files = new ArrayList<Music>();
+        this.files = new ArrayList<Music>();
+        this.likedFiles = new ArrayList<Music>();
     }
 
     /**
@@ -28,7 +29,7 @@ public class MusicCollection {
 
     /**
      * set files
-     * @param files
+     * @param files ArrayList of Music
      */
     public void setFiles(ArrayList<Music> files) {
         this.files = files;
@@ -39,9 +40,7 @@ public class MusicCollection {
      * @param song
      */
     public void addSong(Music song) {
-        if (files == null) {
             files.add(song);
-        }
     }
 
     /**
@@ -52,14 +51,14 @@ public class MusicCollection {
         Iterator<Music> it = files.iterator();
         while(it.hasNext()) {
             Music name = it.next();
-            if(name.equals(song))
+            if(name.getName().equals(song.getName()))
                 it.remove();
         }
     }
 
     /**
      * play song and show status if user enter song name
-     * @param song
+     * @param song name of song
      */
     public void playSong(String song) {
         for (Music temp : files) {
@@ -72,7 +71,7 @@ public class MusicCollection {
 
     /**
      * play song and show status if user enter index of ArrayList
-     * @param index
+     * @param index index of files line
      */
     public void playSong(int index) {
         if (validIndex(index)) {
@@ -93,16 +92,16 @@ public class MusicCollection {
     /**
      * print the whole List
      */
-    public void printALLList() {
+    public void printAllList() {
         System.out.println("List of songs :");
         for (Music temp : files) {
-            System.out.println(temp);
+            System.out.println("song : " + temp.getName());
         }
     }
 
     /**
      * print a specific object of List
-     * @param index
+     * @param index index of array list
      */
     public void printList(int index) {
         if (validIndex(index)){
@@ -122,7 +121,7 @@ public class MusicCollection {
 
     /**
      * check if the index that user has entered is valid or not
-     * @param index
+     * @param index index of array list
      * @return a boolean variable
      */
     private boolean validIndex(int index) {
@@ -135,19 +134,14 @@ public class MusicCollection {
 
     /**
      * add liked song into List with name of song
-     * @param str1
+     * @param music name os music
      */
-    public void addLikedSong(String str1) {
-        for (int i = 0; i < files.size() ; i++) {
-            if (likedFiles.get(i).getName().equals(str1)) {
-                likedFiles.add(files.get(i));
-                break;
-            }
-        }
+    public void addLikedSong(Music music) {
+                likedFiles.add(music);
     }
     /**
      * remove liked song into List with name of song
-     * @param str1
+     * @param str1 name of song
      */
     public void removeLikedSong(String str1) {
         Iterator<Music> it = likedFiles.iterator();
@@ -169,4 +163,5 @@ public class MusicCollection {
             System.out.println(temp);
         }
     }
+
 }
