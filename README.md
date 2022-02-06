@@ -1,5 +1,5 @@
 # Labmanual
-Lab class of AP (FALL 1400)
+Advanced Programming Laboratory (FALL 1400)
 
 LabManual 2 : object oriented concept
 
